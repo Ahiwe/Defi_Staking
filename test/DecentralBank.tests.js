@@ -14,9 +14,20 @@ contract('decentralBank', (accounts) => {
      // the rwd and tether
      let tether, rwd, decentralBank;
 
-     before(async => () {
-          let tether = await Tether.new()
-          let rwd = await RWD.new();
+     function tokens(number){
+          return web3.utils.toWei(number, 'ether');
+     }
+
+     before(async () => {
+          /*This where we load our contracts and deploy them to the blockchain before we run our tests */
+          tether = await Tether.new();
+          rwd = await RWD.new();
+          decentralBank = await DecentralBank.new(rwd.address, tether.address);
+          transfer = await rwd.transfer(decentralBank.address, tokens('1000000'));
+          //for the sake of testing we are going to transfer 100 tether tokens to the investor
+          //this looks like exactly what we did in the deployement 
+          //script but we are now adding where the token is coming from using our "from" object 
+           await tether.transfer(accounts[1], tokens('100'), {from: accounts[0]} )
      })
 
      describe('Mock Tether Deployement', () => {

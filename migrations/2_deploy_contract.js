@@ -22,7 +22,7 @@ module.exports = async function(deployer,network, accounts){
 
     //tranfer RWD tokens to Decentral Bank (1 million)
    
-    await rwd.tranfer(decentralBank.address, '1000000000000000000000000') 
+    await rwd.transfer(decentralBank.address, '1000000000000000000000000') 
 
     //Distribute 100 tether tokens to investor
     await tether.transfer(accounts[1], '100000000000000000000')

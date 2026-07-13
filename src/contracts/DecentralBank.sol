@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.5.17;
 
-import './RWd.sol';
+import './RWD.sol';
 import './Tether.sol';
 
 contract DecentralBank {
