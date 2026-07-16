@@ -56,7 +56,7 @@ contract('decentralBank', ([owner, customer]) => {
 
           it('contract has tokens', async () => {
                let balance = await rwd.balanceOf(decentralBank.address)
-               assert.equal(balance, tokens('1000000'))
+               assert.equal(balance, tokens('1000000000000000000000000000000000000000000'))
           })
      });
 
